@@ -56,6 +56,25 @@ window.portfolioData = {
         "Allotted for the Practice School program to build smart agentic systems and full-stack software products.",
         "Designing modular architectures for career agent pipelines and client-facing interfaces."
       ]
+    },
+    {
+      company: "Bitskrieg (BITS Goa Cybersecurity Club)",
+      role: "Member",
+      duration: "Aug 2024 - 2025",
+      description: "Participated in cybersecurity training, challenges, and Capture The Flag (CTF) events.",
+      bullets: [
+        "Secured 8th rank campus-wide in the BITS Goa initial CTF competition.",
+        "Practiced web security, cryptography, and reverse engineering challenge-solving."
+      ]
+    },
+    {
+      company: "Culinary Club (BITS Goa)",
+      role: "Member",
+      duration: "Aug 2025 - Present",
+      description: "Participated in culinary arts coordination and campus event management.",
+      bullets: [
+        "Active member organizing workshops and representing the club campus-wide."
+      ]
     }
   ],
 
@@ -139,6 +158,11 @@ window.portfolioData = {
       keywords: ["skills", "languages", "cpp", "python", "pytorch", "hpc"],
       question: "What are Arnav's core technical skills?",
       answer: "Arnav's core skills are divided into: 1) HPC & Systems (CUDA, C++, Parallel Programming, Nsight), 2) AI/ML (PyTorch, RL, Transformer KV-Caching), 3) Mathematics (Linear Algebra, Probability, Numerical Analysis), and 4) Web & Tools (Git, Node.js, React)."
+    },
+    {
+      keywords: ["club", "clubs", "bitskrieg", "culinary", "ctf", "extracurricular", "extra-curricular"],
+      question: "What clubs are you a member of at BITS Goa?",
+      answer: "Arnav is a member of Bitskrieg (BITS Goa's cybersecurity club) from August 2024 to 2025, where he secured 8th rank campus-wide in the initial CTF competition. He is also a member of the BITS Goa Culinary Club from August 2025 onwards."
     }
   ]
 };
