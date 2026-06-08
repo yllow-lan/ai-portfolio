@@ -154,6 +154,10 @@ app.post('/api/contact', async (req, res) => {
     return res.status(400).json({ error: "Name, email, and message are required." });
   }
 
+  // Read client-side referer/origin to pass FormSubmit's server origin-check
+  const clientReferer = req.headers.referer || "https://f20240843.goa.bits-pilani.ac.in";
+  const clientOrigin = req.headers.origin || "https://f20240843.goa.bits-pilani.ac.in";
+
   // 1. Dispatch Email directly to Arnav's BITS email via FormSubmit
   try {
     const targetEmail = "f20240843@goa.bits-pilani.ac.in";
@@ -161,7 +165,9 @@ app.post('/api/contact', async (req, res) => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Referer': clientReferer,
+        'Origin': clientOrigin
       },
       body: JSON.stringify({
         Name: name,
