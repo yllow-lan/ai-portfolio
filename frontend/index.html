@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arnav Gupta | AI Career Copilot & Portfolio</title>
+  <meta name="description" content="Explore Arnav Gupta's Maths & Computing portfolio. Ask his AI Copilot questions about his CUDA GEMM optimization, DASH Lab KV Cache research, BITS Pilani education, and skills.">
+  
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Core Styling -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-mode">
+  <!-- Neural Canvas Background -->
+  <canvas id="neural-bg"></canvas>
+
+  <div class="app-container">
+    <!-- Mobile Navigation Tabs (visible only on mobile) -->
+    <header class="mobile-header">
+      <div class="mobile-logo">
+        <span class="logo-accent">&lt;</span>ArnavGupta<span class="logo-accent">.ai /&gt;</span>
+      </div>
+      <div class="mobile-nav-toggles">
+        <button id="tab-btn-portfolio" class="tab-toggle active" aria-label="Show Portfolio">
+          <i class="fa-solid fa-user-tie"></i> Portfolio
+        </button>
+        <button id="tab-btn-copilot" class="tab-toggle" aria-label="Show AI Copilot">
+          <i class="fa-solid fa-robot-astronit"></i> Copilot <span class="badge">AI</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- LEFT SECTION: PORTFOLIO DETAIL VIEW -->
+      <section id="portfolio-pane" class="pane scrollable-pane active">
+        <!-- Hero Header -->
+        <header class="hero-section card">
+          <div class="hero-header-flex">
+            <div class="hero-text">
+              <span class="badge-accent">BITS Pilani Goa</span>
+              <h1 id="user-name">Arnav Gupta</h1>
+              <p id="user-title" class="user-subtitle">High-Performance Computing & AI Researcher</p>
+              <p class="user-desc">Bridging mathematical theory and GPU systems optimization.</p>
+              
+              <div class="social-links">
+                <a href="mailto:f20240843@goa.bits-pilani.ac.in" id="link-email" title="Email Arnav"><i class="fa-solid fa-envelope"></i> Email</a>
+                <a href="https://github.com/yllow-lan" id="link-github" target="_blank" rel="noopener" title="GitHub Profile"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/arnav-gupta-1a6a33320/" id="link-linkedin" target="_blank" rel="noopener" title="LinkedIn Profile"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Sidebar / Inline Navigation -->
+        <nav class="section-nav card">
+          <a href="#about" class="nav-link active"><i class="fa-solid fa-address-card"></i> About</a>
+          <a href="#projects" class="nav-link"><i class="fa-solid fa-cubes"></i> HPC Projects</a>
+          <a href="#skills" class="nav-link"><i class="fa-solid fa-gears"></i> Core Skills</a>
+          <a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase"></i> Experience</a>
+          <a href="#education" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+          <a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+        </nav>
+
+        <!-- About Section -->
+        <section id="about" class="portfolio-section card">
+          <h2><i class="fa-solid fa-circle-user icon-gradient"></i> About Me</h2>
+          <div class="about-content">
+            <p id="about-text-long"></p>
+            <div class="career-focus-grid">
+              <div class="focus-card">
+                <i class="fa-solid fa-microchip icon-neon-green"></i>
+                <h3>GPU Acceleration</h3>
+                <p>Developing custom CUDA kernels with high memory-bandwidth efficiency and thread optimization.</p>
+              </div>
+              <div class="focus-card">
+                <i class="fa-solid fa-brain icon-neon-blue"></i>
+                <h3>Caching Systems</h3>
+                <p>Designing predictive cache evictions using Reinforcement Learning in LLM context-window pipelines.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Interactive HPC Performance Widgets -->
+        <section class="portfolio-section card interactive-widgets">
+          <h2><i class="fa-solid fa-chart-line icon-gradient"></i> Live HPC Benchmarks (Simulated)</h2>
+          <p class="section-intro">Experience the core metrics of Arnav's high-performance kernels and policy architectures.</p>
+          
+          <div class="widget-grid">
+            <!-- Widget 1: CUDA GEMM vs cuBLAS Kernel Speedup -->
+            <div class="widget-card">
+              <h3>CUDA Matrix Multiplication Speedup</h3>
+              <p class="widget-desc">Multiply 2048 x 2048 FP32 matrices. Run the benchmark to compare raw CPU, custom CUDA kernel, and NVIDIA's cuBLAS.</p>
+              
+              <div class="sim-display" id="cuda-sim-display">
+                <div class="bar-chart-container">
+                  <div class="chart-row">
+                    <span class="chart-label">CPU (Single Thread)</span>
+                    <div class="chart-bar-bg"><div id="bar-cpu" class="chart-bar-fill color-cpu" style="width: 0%"></div></div>
+                    <span id="val-cpu" class="chart-value">-- GFLOPS</span>
+                  </div>
+                  <div class="chart-row">
+                    <span class="chart-label">Custom CUDA Kernel</span>
+                    <div class="chart-bar-bg"><div id="bar-custom-cuda" class="chart-bar-fill color-cuda" style="width: 0%"></div></div>
+                    <span id="val-custom-cuda" class="chart-value">-- GFLOPS</span>
+                  </div>
+                  <div class="chart-row">
+                    <span class="chart-label">NVIDIA cuBLAS (Peak)</span>
+                    <div class="chart-bar-bg"><div id="bar-cublas" class="chart-bar-fill color-cublas" style="width: 0%"></div></div>
+                    <span id="val-cublas" class="chart-value">-- GFLOPS</span>
+                  </div>
+                </div>
+                <div class="efficiency-indicator">
+                  <span id="cuda-eff-percent">0%</span>
+                  <span class="eff-label">cuBLAS Efficiency Achieved</span>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="portfolio-section card">
+          <h2><i class="fa-solid fa-laptop-code icon-gradient"></i> Selected Projects</h2>
+          <div id="projects-container" class="projects-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="portfolio-section card">
+          <h2><i class="fa-solid fa-wand-magic-sparkles icon-gradient"></i> Core Expertise</h2>
+          <div id="skills-container" class="skills-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="portfolio-section card">
+          <h2><i class="fa-solid fa-business-time icon-gradient"></i> Professional Experience</h2>
+          <div id="experience-container" class="timeline">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="portfolio-section card">
+          <h2><i class="fa-solid fa-university icon-gradient"></i> Education</h2>
+          <div id="education-container" class="education-grid">
+            <!-- Populated dynamically via JS -->
+          </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="portfolio-section card">
+          <h2><i class="fa-solid fa-envelope-open-text icon-gradient"></i> Get In Touch</h2>
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Your Name</label>
+                <input type="text" id="contact-name" name="name" required placeholder="John Doe">
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Your Email</label>
+                <input type="email" id="contact-email" name="email" required placeholder="john@example.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" required rows="4" placeholder="Hi Arnav, let's connect! I'd love to learn more about your CUDA kernel work..."></textarea>
+            </div>
+            <button type="submit" id="btn-submit-contact" class="btn-primary"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+            <div id="contact-status" class="form-status"></div>
+          </form>
+        </section>
+
+        <footer class="portfolio-footer">
+          <p>© 2026 Arnav Gupta. Powered by Gemini-assisted Systems Programming.</p>
+        </footer>
+      </section>
+
+      <!-- RIGHT SECTION: AI COPILOT CHAT INTERFACE -->
+      <section id="copilot-pane" class="pane chat-pane">
+        <div class="copilot-container card">
+          <!-- Chat Header -->
+          <header class="chat-header">
+            <div class="chat-status-container">
+              <div class="avatar-glow-small"></div>
+              <div class="chat-identity">
+                <h3>Arnav's Copilot</h3>
+                <div class="status-indicator-flex">
+                  <span class="pulse-dot active"></span>
+                  <span id="copilot-status-text">Copilot Active</span>
+                </div>
+              </div>
+            </div>
+            <div class="chat-header-actions">
+              <button id="btn-chat-minimize" class="btn-icon" aria-label="Minimize Chat" title="Minimize Copilot">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- Chat History -->
+          <div id="chat-history" class="chat-history">
+            <!-- Initial Greetings -->
+            <div class="message system-msg">
+              <p><i class="fa-solid fa-shield-halved"></i> Grounded AI Mode Active. All answers generated are verified against Arnav's real portfolio records.</p>
+            </div>
+            
+            <div class="message ai-msg">
+              <div class="msg-bubble">
+                Hi! I am Arnav's Career Copilot. Ask me anything about his BITS Pilani projects, GPU optimizations, RL cache policies, or how to contact him.
+              </div>
+              <span class="msg-time">Just now</span>
+            </div>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div id="chat-typing-indicator" class="chat-typing-indicator hidden">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span>Copilot is formulating response...</span>
+          </div>
+
+          <!-- Quick Suggestion Tags -->
+          <div class="chat-suggestions">
+            <button class="suggest-btn" data-query="How did you achieve 92% of cuBLAS performance?">Optimizing CUDA GEMM</button>
+            <button class="suggest-btn" data-query="Tell me about your KV cache policy research.">DASH Lab KV Cache</button>
+            <button class="suggest-btn" data-query="What courses did you take at BITS Pilani Goa?">BITS Pilani Academic Record</button>
+            <button class="suggest-btn" data-query="What are you doing at Caarya Innovative?">Practice School - I</button>
+          </div>
+
+          <!-- Chat Input -->
+          <footer class="chat-input-bar">
+            <input type="text" id="chat-input" placeholder="Ask about CUDA optimization, KV Cache, skills..." autocomplete="off">
+            <button type="submit" id="btn-chat-send" aria-label="Send message">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </footer>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Floating Chat Toggle Button (Visible when chat is minimized/collapsed) -->
+  <button id="btn-chat-toggle" class="chat-toggle-fab hidden" aria-label="Open AI Copilot">
+    <i class="fa-solid fa-comment-dots"></i>
+    <span class="fab-pulse"></span>
+  </button>
+
+  <!-- Application JS Entry -->
+  <script src="js/portfolioData.js"></script>
+  <script src="js/aiEngine.js"></script>
+  <script src="js/portfolio.js"></script>
+  <script src="js/copilot.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

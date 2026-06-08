@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+backend/node_modules/
+
+# Environment Variables & Keys
+.env
+backend/.env
+
+# IDE and System Files
+.DS_Store
+.vscode/
+.idea/
+Thumbs.db
+
+# Vercel Cache & Configs
+.vercel
+dist/
+build/

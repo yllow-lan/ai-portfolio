@@ -1,0 +1,11 @@
+{
+  "name": "ai-portfolio-copilot-root",
+  "version": "1.0.0",
+  "description": "AI Portfolio Copilot project root for Arnav Gupta",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix backend",
+    "start:backend": "npm start --prefix backend",
+    "dev:backend": "npm run dev --prefix backend"
+  }
+}
