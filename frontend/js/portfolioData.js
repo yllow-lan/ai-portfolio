@@ -51,11 +51,8 @@ window.portfolioData = {
       company: "Caarya Innovative",
       role: "AI & Software Engineering Intern (Practice School - I)",
       duration: "May 2026 - Present",
-      description: "Developing scalable full-stack and AI pipeline solutions.",
-      bullets: [
-        "Allotted for the Practice School program to build smart agentic systems and full-stack software products.",
-        "Designing modular architectures for career agent pipelines and client-facing interfaces."
-      ]
+      description: "",
+      bullets: []
     },
     {
       company: "Bitskrieg (BITS Goa Cybersecurity Club)",
@@ -111,7 +108,7 @@ window.portfolioData = {
     categories: [
       {
         name: "HPC & Systems",
-        items: ["CUDA", "C++", "C", "OpenMP", "NVIDIA Nsight", "Parallel Programming", "Operating Systems"]
+        items: ["CUDA", "C++", "C", "NVIDIA Nsight", "Parallel Programming"]
       },
       {
         name: "AI & Machine Learning",

@@ -84,10 +84,11 @@ function renderExperience() {
         <span class="timeline-duration">${exp.duration}</span>
       </div>
       <div class="timeline-role">${exp.role}</div>
-      <p class="timeline-desc">${exp.description}</p>
+      ${exp.description ? `<p class="timeline-desc">${exp.description}</p>` : ''}
+      ${exp.bullets && exp.bullets.length > 0 ? `
       <ul class="timeline-bullets">
         ${exp.bullets.map(bullet => `<li>${bullet}</li>`).join('')}
-      </ul>
+      </ul>` : ''}
     </div>
   `).join('');
 }
