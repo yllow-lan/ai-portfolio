@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Work Order · Process Documentation · CAARYA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:       #CC0000;
+      --red-deep:  #8B0000;
+      --red-light: #fff0f0;
+      --ink:       #141414;
+      --ink2:      #2a2a2a;
+      --muted:     #5a5a5a;
+      --faint:     #999;
+      --rule:      #e6e4e0;
+      --surface:   #f7f6f3;
+      --bg:        #faf9f7;
+      --white:     #ffffff;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3rem 1rem 4rem;
+    }
+
+    /* ── PAGE SHELL ── */
+    .page {
+      background: var(--white);
+      max-width: 740px;
+      width: 100%;
+      border: 1px solid var(--rule);
+      box-shadow: 0 2px 32px rgba(0,0,0,0.07), 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      background: var(--white);
+    }
+
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Caarya logo mark inline SVG */
+    .logo-wrap { display: flex; align-items: center; gap: 8px; }
+    .logo-svg { width: 28px; height: 28px; }
+    .logo-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .top-bar-pill {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--red);
+      background: var(--red-light);
+      border: 1px solid rgba(204,0,0,0.15);
+      border-radius: 20px;
+      padding: 3px 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .top-bar-right {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 3.5rem 2.5rem 2.75rem;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--red);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 50px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 480px;
+      margin-top: 1.25rem;
+    }
+
+    /* Hero meta row */
+    .hero-meta {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      padding-top: 1.75rem;
+      border-top: 1px solid var(--rule);
+      flex-wrap: wrap;
+    }
+
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      color: var(--faint);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .meta-val {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .meta-val .red { color: var(--red); }
+
+    /* ── BODY ── */
+    .body { padding: 0; }
+
+    /* ── SECTION BLOCK ── */
+    .sec {
+      padding: 2.25rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .sec:last-child { border-bottom: none; }
+
+    .sec-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.85rem;
+    }
+
+    .sec-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .para {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.85;
+      font-weight: 300;
+    }
+
+    .para + .para { margin-top: 0.85rem; }
+
+    .para strong {
+      font-weight: 500;
+      color: var(--ink2);
+    }
+
+    /* ── CALLOUT BLOCK ── */
+    .callout {
+      background: var(--surface);
+      border-left: 2px solid var(--red);
+      border-radius: 0 6px 6px 0;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .callout p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink2);
+      line-height: 1.7;
+    }
+
+    /* ── KNOWLEDGE CARD ANATOMY ── */
+    .kc-wrap {
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 1.75rem;
+      background: var(--white);
+    }
+
+    .kc-header {
+      background: var(--ink);
+      padding: 0.9rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .kc-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
+      padding: 3px 8px;
+    }
+
+    .kc-header-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.01em;
+    }
+
+    .kc-fields {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    .kc-field {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid var(--rule);
+      position: relative;
+    }
+
+    .kc-field:last-child { border-bottom: none; }
+
+    .kc-field-mandatory { background: var(--white); }
+    .kc-field-optional { background: var(--surface); }
+
+    .kc-field-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .kc-field-label .req-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .kc-field-label .opt-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--faint);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
+
+    .kc-field-desc {
+      font-size: 13px;
+      color: var(--ink2);
+      line-height: 1.7;
+    }
+
+    .code-snippet {
+      font-family: 'DM Mono', monospace;
+      font-size: 11.5px;
+      background: var(--surface);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 8px 12px;
+      margin-top: 8px;
+      overflow-x: auto;
+      color: #333;
+      white-space: pre-wrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 1.5rem 2.5rem;
+      border-top: 1px solid var(--rule);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--white);
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-brand {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .footer-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--red);
+    }
+
+    .footer-track {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--faint);
+      letter-spacing: 0.06em;
+    }
+
+    .footer-right {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--faint);
+    }
+
+    /* ── PRINT RULES ── */
+    @media print {
+      body { background: white; padding: 0; }
+      .page { border: none; box-shadow: none; max-width: 100%; }
+      .kc-wrap { page-break-inside: avoid; margin-top: 2rem; }
+      .sec { page-break-inside: auto; }
+      .sec-eyebrow, .sec-title { page-break-after: avoid; }
+      .footer { page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── TOP BAR ── -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="logo-wrap">
+        <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="50" fill="#f8d7d7"/>
+          <rect x="16" y="16" width="68" height="68" fill="#CC3333"/>
+          <polygon points="28,30 72,30 50,72" fill="#6B0000"/>
+        </svg>
+        <span class="logo-text">Caarya</span>
+      </div>
+    </div>
+    <div class="top-bar-pill">My Process Documentation</div>
+    <div class="top-bar-right">#proof-of-work</div>
+  </div>
+
+  <!-- ── HERO ── -->
+  <div class="hero">
+    <div class="hero-eyebrow">Phase 02 · Process Documentation</div>
+    <div class="hero-title">
+      My Process:<br><em>How I built the<br>AI Portfolio Copilot.</em>
+    </div>
+    <div class="hero-subtitle">
+      A transparent and honest breakdown of the design decisions, engineering trade-offs, and critical moments that shaped the development of my AI-integrated professional portfolio.
+    </div>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <div class="meta-label">Author</div>
+        <div class="meta-val">Arnav Gupta</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Track</div>
+        <div class="meta-val">AI Track (PS-1)</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Institute</div>
+        <div class="meta-val">BITS Pilani Goa</div>
+      </div>
+      <div class="meta-item">
+        <div class="meta-label">Date</div>
+        <div class="meta-val">June 17, 2026</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BODY ── -->
+  <div class="body">
+
+    <!-- WORK UNIT DEFINITION -->
+    <div class="sec">
+      <div class="sec-eyebrow">1. Work Unit Definition</div>
+      <div class="sec-title">What I Set Out to Build</div>
+      <p class="para">
+        My core objective in this work unit was to design, develop, and deploy a responsive, glassmorphic, single-page professional portfolio website featuring a hybrid server-side and client-side grounded AI Career Copilot assistant. The project addresses the challenge of presenting low-level systems engineering work (such as CUDA GEMM optimizers) alongside high-level AI applications in a cohesive, interactive medium.
+      </p>
+      <p class="para">
+        Through this work unit, I established the following <strong>Atomic Values</strong>:
+      </p>
+      
+      <div class="callout">
+        <p>1. <strong>Unified Career Representation:</strong> I merged my low-level HPC parallel programming work with modern web architectures into a single obsidian-themed layout.</p>
+        <br>
+        <p>2. <strong>Zero-Dependency Accessibility:</strong> I implemented local keyword-matching fallbacks to guarantee the chatbot remains usable even if serverless runtimes fail or API keys are unavailable.</p>
+        <br>
+        <p>3. <strong>Research Privacy Guardrails:</strong> I structured the profile copy and chatbot grounding dataset to showcase conceptual competence and academic achievements without exposing ongoing, proprietary research data from my work at BITS Goa's DASH Lab.</p>
+        <br>
+        <p>4. <strong>Resilient Lead Capture:</strong> I integrated direct-to-email contact form routing with failover backups to capture visitor messages reliably without requiring dedicated SMTP backend infrastructure.</p>
+      </div>
+    </div>
+
+    <!-- KNOWLEDGE CARDS -->
+    <div class="sec">
+      <div class="sec-eyebrow">2. Knowledge Cards</div>
+      <div class="sec-title">Key Insights & Lessons Learned</div>
+      <p class="para">
+        The following cards detail five critical decisions, debug cycles, and boundary checks from my process, detailing both what failed and what ultimately worked.
+      </p>
+
+      <!-- CARD 1 -->
+      <div class="kc-wrap">
+        <div class="kc-header">
+          <div class="kc-badge">Card 01</div>
+          <div class="kc-header-title">Architectural Hybrid AI Engine (Technical Decision)</div>
+        </div>
+        <div class="kc-fields">
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Atomic Value Tag</div>
+            <div class="kc-field-desc">Reduced API vulnerability and minimized hosting costs.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Situation / Context</div>
+            <div class="kc-field-desc">I needed a conversational AI assistant on my landing page to answer recruiters' questions. However, embedding raw Gemini API keys in the client-side JavaScript exposes them to theft, while hosting a dedicated 24/7 Node.js backend server introduces hosting overhead and potential downtime.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Friction</div>
+            <div class="kc-field-desc">I faced a trade-off between user convenience and backend security. Requiring visitors to input their own API keys before chatting would ruin user experience, while forcing all queries through a dedicated web server would incur setup costs.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Failed</div>
+            <div class="kc-field-desc">I tried obfuscating the API key in client-side code (which was easily extracted via browser inspection) and tried prompting the user to supply their own key (which created high initial user friction and drop-off).</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Worked</div>
+            <div class="kc-field-desc">I built a **Hybrid AI Engine**. By default, it operates in **Offline Mode** using a client-side keyword and Jaccard similarity matcher on the localized `portfolioData.js` object. When deployed, it queries a secure serverless endpoint proxy (`/api/chat` serverless function) to retrieve answers from Gemini 2.5 Flash using system-level environment variables, fallback-safeguarding token usage.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Principle</div>
+            <div class="kc-field-desc"><strong>Progressive Degradation & Zero-Cost Serverless Proxies:</strong> Build systems that degrade gracefully to static local search heuristics when external services are offline or API keys are absent, and leverage serverless endpoints to perform secure key-dependent operations.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>When This Applies</div>
+            <div class="kc-field-desc">When building public portfolios or client-facing showcase websites that require LLM interactions without exposing backend resources or paying for dedicated server runtimes.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>AI Prompts Used</div>
+            <div class="kc-field-desc">
+              How I asked the AI for guidance on the offline fallback:
+              <div class="code-snippet">"How can I design a lightweight, zero-dependency keyword matcher in JavaScript that handles user search queries by calculating simple token overlap against a predefined JSON schema without using npm libraries?"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="kc-wrap">
+        <div class="kc-header">
+          <div class="kc-badge">Card 02</div>
+          <div class="kc-header-title">Persona-Bound Grounding Rules (Prompt Engineering)</div>
+        </div>
+        <div class="kc-fields">
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Atomic Value Tag</div>
+            <div class="kc-field-desc">Guided recruiter engagement and restricted token usage.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Situation / Context</div>
+            <div class="kc-field-desc">I needed to configure the Gemini 2.5 Flash system prompt to represent me professionally and discuss *only* topics grounded in my resume data (education, CUDA projects, BITS Goa coursework).</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Friction</div>
+            <div class="kc-field-desc">Out-of-the-box LLMs are generalists. If a visitor asks my portfolio chatbot to write a Python script, solve general physics problems, or write a poem, the model will comply. This consumes API quota, dilutes the professional context, and presents a branding risk.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Failed</div>
+            <div class="kc-field-desc">Writing a basic positive system prompt: *"You are Arnav's career assistant. Use this resume data to answer questions about him."* The model still happily answered off-topic math questions, solved generic coding exercises, and occasionally hallucinated details not found in the resume.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Worked</div>
+            <div class="kc-field-desc">I designed a strict system instruction structure with explicit negative constraints and boundary enforcement:
+              1. Persona Lock: "You are strictly Arnav's Career Copilot, representing him professionally."
+              2. Strict Grounding: "Answer ONLY using the provided context. If a detail is missing, say: 'I don't have information on that in Arnav's profile records.'"
+              3. Unrelated Query Blocks: "If the user asks about unrelated topics (e.g. general news, coding exercises, cooking recipes, math tasks not related to Arnav's research, writing poems), say: 'I am only trained to answer questions about Arnav Gupta's professional career, skills, and background.'"</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Principle</div>
+            <div class="kc-field-desc"><strong>Boundary-Enforced Scoping:</strong> Grounding RAG systems requires defining strict negative boundaries (what the model *must not* answer) rather than only specifying what it *should* reference.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>When This Applies</div>
+            <div class="kc-field-desc">When deploying user-facing AI chat widgets where query scopes must be strictly controlled to prevent misuse or brand dilution.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>AI Prompts Used</div>
+            <div class="kc-field-desc">
+              How I designed the constraint prompt:
+              <div class="code-snippet">"Refactor this system prompt to enforce strict negative guardrails on Gemini 2.5 Flash so that it rejects any queries that are not directly related to the candidate's resume, without sounding overly robotic or hostile to recruiters."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="kc-wrap">
+        <div class="kc-header">
+          <div class="kc-badge">Card 03</div>
+          <div class="kc-header-title">Third-Party Form Handshakes (Debugging / What Broke)</div>
+        </div>
+        <div class="kc-fields">
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Atomic Value Tag</div>
+            <div class="kc-field-desc">Confirmed client lead delivery and resolved silent failures.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Situation / Context</div>
+            <div class="kc-field-desc">I hooked up the "Get in Touch" contact form to forward visitor messages directly to my BITS Pilani email (`f20240843@goa.bits-pilani.ac.in`).</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Friction</div>
+            <div class="kc-field-desc">In local development, the contact form simulated a success state, but on the live Vercel site, submissions failed to deliver or ended up silent because form processors (like FormSubmit.co) check requesting domains and origins to prevent spam and verify ownership.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Failed</div>
+            <div class="kc-field-desc">Submitting form data via AJAX without specifying the proper HTTP headers, resulting in silent spam blocks or CORS rejections on the production site, while the local fallback incorrectly assumed delivery.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Worked</div>
+            <div class="kc-field-desc">I refactored the backend API request to explicitly pass domain origin parameters (`Origin` and `Referer` headers) to mock the verified domain handshake, and implemented a serverless Node.js route `/api/contact` that handles environment validation and returns a clean 200 fallback when writing backup logs to a read-only serverless disk fails.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Principle</div>
+            <div class="kc-field-desc"><strong>Environment-Specific Handshake Verification:</strong> Zero-backend third-party integrations (like email submitters) must be audited across different origin states (localhost vs. production domains) to verify CORS and origin filtering rules.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>When This Applies</div>
+            <div class="kc-field-desc">When building serverless or static portfolios that require contact forms with automated email delivery without dedicated SMTP backends.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>AI Prompts Used</div>
+            <div class="kc-field-desc">
+              How I debugged the CORS blockage:
+              <div class="code-snippet">"Why does FormSubmit.co return a CORS error or fail to deliver when called via an AJAX fetch in a Node.js Express server acting as a proxy, and how do I configure the Referer and Origin headers to bypass this?"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="kc-wrap">
+        <div class="kc-header">
+          <div class="kc-badge">Card 04</div>
+          <div class="kc-header-title">Visual Space Hierarchy (UI/UX Refactoring)</div>
+        </div>
+        <div class="kc-fields">
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Atomic Value Tag</div>
+            <div class="kc-field-desc">Improved layout readability and restored viewport constraints.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Situation / Context</div>
+            <div class="kc-field-desc">Designing the layout for my resume and HPC project cards. My initial design used a 50/50 split-screen layout (portfolio on the left, chat box on the right).</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Friction</div>
+            <div class="kc-field-desc">On standard viewports (especially laptops), both columns competed for width. This caused structural squishing: text overflowed, scrollbars appeared inside tiny panels, and critical elements (like BITS Pilani tags) were cropped. The main page scrollbar was stuck in the middle of the screen instead of the edge.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Failed</div>
+            <div class="kc-field-desc">Attempting to use CSS media queries to resize the split panes on medium screens, which still looked extremely cramped and squashed the resume content.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Worked</div>
+            <div class="kc-field-desc">I changed the layout. The main portfolio content was refactored into a single full-width column centered on the screen, letting it scroll naturally with the browser's scrollbar on the far right. The chat box was rebuilt as a floating, collapsible widget in the bottom-right corner that can be opened or closed at will.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Principle</div>
+            <div class="kc-field-desc"><strong>Visual Layout Dominance:</strong> Primary content should occupy the center stage, while conversational assistants and conversational interfaces should float on a separate presentation layer to prevent layout competition.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>When This Applies</div>
+            <div class="kc-field-desc">When designing dashboards or information-heavy layouts that feature complementary AI chat assistance.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>AI Prompts Used</div>
+            <div class="kc-field-desc">
+              How I refactored the layout structure:
+              <div class="code-snippet">"How can I transition a two-column split-pane web app where the right pane is a chat interface into a single-column layout with a floating, collapsible chat widget in the bottom-right corner using CSS flex/grid and fixed positioning?"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="kc-wrap">
+        <div class="kc-header">
+          <div class="kc-badge">Card 05</div>
+          <div class="kc-header-title">Research Discretion & Intellectual Property (Information Privacy)</div>
+        </div>
+        <div class="kc-fields">
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Atomic Value Tag</div>
+            <div class="kc-field-desc">Protected research confidentiality while demonstrating technical competency.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>Situation / Context</div>
+            <div class="kc-field-desc">Displaying my research on LLM inference systems at BITS Goa's DASH Lab.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Friction</div>
+            <div class="kc-field-desc">Presenting impressive metrics (KV cache hit rates, predictive caching policies) while keeping academic research confidential. Putting too many specific metrics or live charts on the portfolio could expose intellectual property.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Failed</div>
+            <div class="kc-field-desc">Designing an interactive KV Cache simulator widget on the website with live hit-rate charts. This made the implementation details too specific, potentially exposing ongoing academic study.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>What Worked</div>
+            <div class="kc-field-desc">I stripped the interactive caching metrics charts out of the UI. I redesigned the copy to focus on high-level learnings: LLM inference architectures, and simulation workload concepts for cost-effective systems.</div>
+          </div>
+          <div class="kc-field kc-field-mandatory">
+            <div class="kc-field-label"><span class="req-dot"></span>The Principle</div>
+            <div class="kc-field-desc"><strong>Conceptual Competence over Metric Disclosure:</strong> In portfolios showcasing ongoing research, highlight methodological expertise and architectural understanding rather than specific performance numbers or implementation details.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>When This Applies</div>
+            <div class="kc-field-desc">When building portfolios while working inside academic labs or industry settings with strict IP or NDA guidelines.</div>
+          </div>
+          <div class="kc-field kc-field-optional">
+            <div class="kc-field-label"><span class="opt-dot"></span>AI Prompts Used</div>
+            <div class="kc-field-desc">
+              How I reworded the research description to protect IP:
+              <div class="code-snippet">"Rewrite a research description about optimizing KV caches using reinforcement learning to be high-level and conceptual, focusing on learning Large Language Model architectures and simulation workloads rather than disclosing performance metrics or experimental results."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      <div class="footer-left">
+        <span class="footer-brand">CAARYA</span>
+        <span class="footer-dot"></span>
+        <span class="footer-track">AI Track · Phase 02</span>
+      </div>
+      <div class="footer-right">caarya.in</div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
