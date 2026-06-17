@@ -96,7 +96,7 @@ function getOfflineResponse(query) {
   }
 
   // Generic fallback if nothing matches
-  return "I'm not fully sure about that detail from Arnav's portfolio. You can try asking about his **CUDA Matrix Multiplication** work, **DASH Lab KV Cache Research**, his studies at **BITS Pilani**, or use the Contact Form on the left to reach out to him directly!";
+  return "I'm not fully sure about that detail from Arnav's portfolio. You can try asking about his **CUDA Matrix Multiplication** work, **DASH Lab LLM Inference Study**, his studies at **BITS Pilani**, or use the Contact Form on the left to reach out to him directly!";
 }
 
 /**

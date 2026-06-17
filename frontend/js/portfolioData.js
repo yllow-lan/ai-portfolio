@@ -10,8 +10,8 @@ window.portfolioData = {
     github: "https://github.com/yllow-lan",
     linkedin: "https://www.linkedin.com/in/arnav-gupta-1a6a33320/",
     resumeUrl: "#",
-    aboutShort: "Mathematics & Computing undergraduate at BITS Pilani Goa, specializing in GPU acceleration (CUDA), High-Performance Computing (HPC), and Reinforcement Learning applied to LLM inference systems.",
-    aboutLong: "I am Arnav Gupta, a Mathematics & Computing student at BITS Pilani, K.K. Birla Goa Campus. I am passionate about bridging the gap between mathematical theory and high-performance system implementation. My work sits at the intersection of GPU kernel optimization, compiler engineering, and deep learning infrastructure. Currently, I am designing predictive caching policies for LLM KV caches using Reinforcement Learning at BITS Goa's DASH Lab, and optimizing deep-learning primitive kernels in CUDA.",
+    aboutShort: "Mathematics & Computing undergraduate at BITS Pilani Goa, specializing in GPU acceleration (CUDA), High-Performance Computing (HPC), and LLM inference systems simulation.",
+    aboutLong: "I am Arnav Gupta, a Mathematics & Computing student at BITS Pilani, K.K. Birla Goa Campus. I am passionate about bridging the gap between mathematical theory and high-performance system implementation. My work sits at the intersection of GPU kernel optimization, compiler engineering, and deep learning infrastructure. Currently, I am studying how LLMs work behind the scenes and design principles for cost-effective inference simulators at BITS Goa's DASH Lab, alongside optimizing GPU deep-learning primitive kernels in CUDA.",
     location: "Goa, India",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=300&h=300&q=80" // High-quality profile placeholder
   },
@@ -40,11 +40,10 @@ window.portfolioData = {
       company: "DASH Lab (HPC Lab, BITS Goa)",
       role: "Research Assistant - LLM Inference Systems",
       duration: "Nov 2025 - Present",
-      description: "Researching and developing custom KV (Key-Value) cache management policies to accelerate LLM inference.",
+      description: "Gaining a comprehensive understanding of Large Language Model (LLM) architectures and inference mechanics.",
       bullets: [
-        "Investigating the behavior of standard caching policies (like LRU) under various LLM workload prompt patterns.",
-        "Exploring predictive caching strategies to optimize Key-Value (KV) cache block management dynamically.",
-        "Simulating cache behaviors under long-context scenarios to analyze potential latency and throughput improvements."
+        "Learned how LLM inferencing works and how LLMs function behind the scenes.",
+        "Investigated how LLM inference simulators can be designed to analyze workloads in a cost-effective manner."
       ]
     },
     {
@@ -90,15 +89,14 @@ window.portfolioData = {
       github: "https://github.com/yllow-lan/fluffy-spoon"
     },
     {
-      id: "rl-kv-cache",
-      title: "Predictive RL Caching Policy for LLM KV Cache",
-      tag: "Reinforcement Learning & Systems",
-      metrics: "Ongoing Research",
-      description: "Researching predictive caching frameworks for Large Language Model KV caches to investigate alternatives to standard heuristics.",
+      id: "llm-inference-simulation",
+      title: "LLM Inference & Simulation Study",
+      tag: "Systems & Simulation",
+      metrics: "Ongoing Study",
+      description: "Conducted an exploratory study on Large Language Model (LLM) architectures, inference mechanics, and simulation workloads.",
       bullets: [
-        "Studying machine learning approaches for analyzing attention-map patterns and sequence context to guide block eviction.",
-        "Developing simulation tools in Python to model token usage and evaluate cache behaviors under long-context patterns.",
-        "Comparing custom caching strategies against standard baselines to find latency-reduction opportunities in LLM execution."
+        "Learned how LLMs work behind the scenes and how LLM inferencing operates under the hood.",
+        "Studied design principles for lightweight simulators to model inference workloads cost-effectively."
       ],
       github: "#"
     }
@@ -112,7 +110,7 @@ window.portfolioData = {
       },
       {
         name: "AI & Machine Learning",
-        items: ["PyTorch", "Reinforcement Learning (RL)", "Transformers", "KV Cache Optimization", "RAG Systems", "Python"]
+        items: ["PyTorch", "Deep Learning", "Transformers", "LLM Inference", "RAG Systems", "Python"]
       },
       {
         name: "Mathematics",
@@ -132,9 +130,9 @@ window.portfolioData = {
       answer: "Arnav optimized a custom General Matrix Multiplication (GEMM) kernel in NVIDIA CUDA, achieving 92% of the performance of NVIDIA's industry-standard cuBLAS library. He implemented shared memory tiling, register caching, and double buffering to bypass global memory latency, and used NVIDIA Nsight Compute to diagnose warp stalls and resolve shared memory bank conflicts."
     },
     {
-      keywords: ["kv cache", "caching", "lru", "dash lab", "llm", "reinforcement learning", "rl", "caching policy"],
-      question: "What is your KV Cache predictive caching research about?",
-      answer: "In the DASH Lab at BITS Goa, Arnav is researching predictive caching policies for LLM Key-Value (KV) caches. His work focuses on studying transformer attention patterns and sequence context to optimize cache block management strategies and explore potential latency reductions for long-context generation."
+      keywords: ["llm", "inference", "simulator", "dash lab", "transformer"],
+      question: "What is your LLM inference simulation study about?",
+      answer: "At BITS Goa's DASH Lab, Arnav studied how LLMs work behind the scenes and how LLM inferencing operates. He also investigated how LLM inference simulators can be designed to model workloads in a cost-effective manner."
     },
     {
       keywords: ["bits", "goa", "pilani", "college", "gpa", "degree", "mathematics", "maths and computing", "courses"],
@@ -154,7 +152,7 @@ window.portfolioData = {
     {
       keywords: ["skills", "languages", "cpp", "python", "pytorch", "hpc"],
       question: "What are Arnav's core technical skills?",
-      answer: "Arnav's core skills are divided into: 1) HPC & Systems (CUDA, C++, Parallel Programming, Nsight), 2) AI/ML (PyTorch, RL, Transformer KV-Caching), 3) Mathematics (Linear Algebra, Probability, Numerical Analysis), and 4) Web & Tools (Git, Node.js, React)."
+      answer: "Arnav's core skills are divided into: 1) HPC & Systems (CUDA, C++, Parallel Programming, Nsight), 2) AI/ML (PyTorch, Deep Learning, LLM Inference), 3) Mathematics (Linear Algebra, Probability, Numerical Analysis), and 4) Web & Tools (Git, Node.js, React)."
     },
     {
       keywords: ["club", "clubs", "bitskrieg", "culinary", "ctf", "extracurricular", "extra-curricular"],

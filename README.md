@@ -12,7 +12,7 @@ This application features a premium dark-mode, glassmorphic dashboard featuring 
 * **Structure:** Semantic HTML5
 * **Styling:** Vanilla CSS (Glassmorphism design, HSL color tokens, custom grid overlays, hover keyframe micro-animations)
 * **Logic:** Modern ES6 Vanilla JavaScript (CORS-free script tags, no build steps or compilers required, enabling zero-install runtimes)
-* **Graphics:** HTML5 Canvas (Neural network background grid + dynamic KV Cache Hit Rate graph)
+* **Graphics:** HTML5 Canvas (Neural network background grid)
 
 ### Backend (Server-side Proxy)
 * **Runtime:** Node.js
@@ -133,9 +133,9 @@ Try asking the Copilot these questions to verify grounding and safety behaviors:
 * **Query:** *How did you optimize your CUDA GEMM matrix multiplication?*
 * **Expected Grounded Answer:** Details regarding Arnav achieving 92% of NVIDIA's cuBLAS performance. Mentions shared memory tiling, thread tiling, double buffering, register accumulation, and profiling with NVIDIA Nsight Compute to eliminate bank conflicts.
 
-### 2. DASH Lab Caching Systems
-* **Query:** *What is your KV cache caching policy project about?*
-* **Expected Grounded Answer:** Details regarding Arnav's ongoing research at DASH Lab (BITS Goa). Explains that standard policies like LRU perform poorly under LLM sequence contexts. Explores predictive caching strategies, attention pattern reuse, and block management simulation to optimize memory latency.
+### 2. DASH Lab LLM Inference Systems
+* **Query:** *What is your LLM inference simulation study about?*
+* **Expected Grounded Answer:** Details regarding Arnav's study of LLM architectures and inference mechanics at DASH Lab (BITS Goa). Explains that he studied how LLM inferencing works behind the scenes and investigated how LLM inference simulators can be designed to model workloads in a cost-effective manner.
 
 ### 3. Education / BITS Pilani
 * **Query:** *What courses did you take at BITS Pilani Goa?*
